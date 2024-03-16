@@ -54,7 +54,7 @@ const Sidebar = () => {
       <nav className="flex h-full flex-1 flex-col space-y-1 p-2">
         <Accordion.Root className="AccordionRoot" type="single" collapsible>
           {parents.map((parent) => (
-            <Accordion.Item className="AccordionItem" value={parent.code}>
+            <Accordion.Item className="AccordionItem" value={parent.code} key={parent.code}>
               <AccordionTrigger>{parent.name}</AccordionTrigger>
               <AccordionContent>
                 Yes. It adheres to the WAI-ARIA design pattern.
