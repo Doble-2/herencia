@@ -31,7 +31,7 @@ export default function Home() {
             />
           </div>*/}
 
-          <div className=" h-full rounded-2xl flex-shrink-0 bg-ownOrange justify-self-center flex md:w-[450px] md:flex-col">
+          <div className=" h-full rounded-2xl flex-shrink-0 bg-ownCreme justify-self-center flex md:w-[450px] md:flex-col">
             <div className="flex h-full min-h-0 flex-col ">
               <Sidebar />
             </div>

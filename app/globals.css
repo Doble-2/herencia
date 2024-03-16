@@ -81,13 +81,25 @@
   body {
     @apply bg-background text-foreground;
   }
+  .color-ownOrange{
+    color: var(--ownOrange);
+  }
+  .color-ownCreme{
+    color: var(--ownCreme);
+  }
+  .color-ownPink{
+    color: var(--ownPink);
+  }
   .bg-ownOrange{
     background-color: var(--ownOrange);
+    @apply color-ownCreme;
   }
   .bg-ownCreme{
     background-color: var(--ownCreme);
+    @apply color-ownOrange;
   }
   .bg-ownPink{
     background-color: var(--ownPink);
   }
+
 }

@@ -42,11 +42,11 @@ const enfermedades = [
   "Enfermedades hepáticas",
 ];
 
-const rasgos = {
-  "Color de ojos": ["Azul", "Verde", " Café", "Negro"],
+const rasgos = [
+  { name: "Color de ojos", values: ["Zafiro", "Esmeralda", "Avellana"] },
 
-  Cabello: ["Lacio", "Ondulado", "Rizado"],
-};
+  { name: "Cabello", values: ["Lacio", "Ondulado", "Rizado"] },
+];
 
 const Sidebar = () => {
   return (
@@ -54,7 +54,11 @@ const Sidebar = () => {
       <nav className="flex h-full flex-1 flex-col space-y-1 p-2">
         <Accordion.Root className="AccordionRoot" type="single" collapsible>
           {parents.map((parent) => (
-            <Accordion.Item className="AccordionItem" value={parent.code} key={parent.code}>
+            <Accordion.Item
+              className="AccordionItem"
+              value={parent.code}
+              key={parent.code}
+            >
               <AccordionTrigger>{parent.name}</AccordionTrigger>
               <AccordionContent>
                 Yes. It adheres to the WAI-ARIA design pattern.
@@ -70,7 +74,7 @@ const AccordionTrigger = React.forwardRef(
   ({ children, className, ...props }, forwardedRef) => (
     <Accordion.Header>
       <Accordion.Trigger
-        className="flex py-3 px-3 items-center gap-3 rounded-md hover:bg-gray-500/10 transition-colors duration-200 text-white cursor-pointer text-sm"
+        className="flex py-2 px-3 w-full items-center gap-3 rounded-md hover:bg-gray-500/10 transition-colors duration-200 cursor-pointer text-sm"
         {...props}
         ref={forwardedRef}
       >
@@ -79,25 +83,41 @@ const AccordionTrigger = React.forwardRef(
       </Accordion.Trigger>
     </Accordion.Header>
   )
-);AccordionTrigger.displayName = 'AccordionTrigger';
+);
+AccordionTrigger.displayName = "AccordionTrigger";
 
 const AccordionContent = React.forwardRef(
   ({ children, className, ...props }, forwardedRef) => (
     <Accordion.Content {...props} ref={forwardedRef}>
-      <div className="flex py-3 px-3 items-center gap-3 rounded-md hover:bg-gray-500/10 transition-colors duration-200cursor-pointer text-sm">
+      <div className=" mb-5  px-3 items-center gap-3 rounded-md  text-sm">
+        <div className="mb-3">Enfermedades</div>
         <Multiselect
-          options={enfermedades} // Options to display in the dropdown
+          options={enfermedades}
           isObject={false}
-      
-         // onSelect={this.onSelect} // Function will trigger on select event
-         // onRemove={this.onRemove} // Function will trigger on remove event
-         // Property name to display in the dropdown options
+          // onSelect={this.onSelect} // Function will trigger on select event
+          // onRemove={this.onRemove} // Function will trigger on remove event
         />
+      </div>
+
+      <div className=" mb-5  px-3 items-center gap-3 rounded-md  text-sm">
+        <div className="mb-3">Rasgos</div>
+        {rasgos.map((rasgo) => (
+          <div className=" mb-5  px-3 items-center gap-3 rounded-md flex text-sm">
+            <div className="mb-3">{rasgo.name}</div>
+            <select>
+              {rasgo.values.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
+        ))}
       </div>
     </Accordion.Content>
   )
 );
-AccordionContent.displayName = 'AccordionContent';
+AccordionContent.displayName = "AccordionContent";
 /*onSelect(selectedList, selectedItem) {
   print(selectedItem);
 };
