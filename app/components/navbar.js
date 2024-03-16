@@ -7,7 +7,7 @@ import { MdEgg } from "react-icons/md";
 export default function Navbar() {
   const [ShowNavbar, ShowSetNavbar] = useState(false);
   return (
-    <nav className="w-full nav shadow">
+    <nav className="w-full bg-ownOrange shadow">
       <div className={` px-4 mx-auto lg:max-w-7xl items-center justify-center flex `/*md:items-center md:flex md:px-8*/}>
         <div>
           <div className="flex items-center justify-between py-1 md:py-5 md:block">

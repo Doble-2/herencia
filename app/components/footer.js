@@ -5,8 +5,8 @@ import { IoLogoFigma } from "react-icons/io5";
 
 export default function Footer() {
   return (
-    <div className="w-full text-white nav h-fitcontent">
-      <div className="avila ">
+    <div className="w-full text-white bg-ownOrange h-fitcontent">
+      <div className=" ">
         <div className="px-10 vw100 lg:py-10 py-5  md:flex md:items-center md:justify-between">
           <span className="text-sm text-white  justify-center flex  sm:text-center">
             {" "}

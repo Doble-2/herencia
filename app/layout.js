@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
      
       <body className={inter.className}>
        
-        <main className="flex min-h-screen flex-col items-center justify-between bg-bornCreme">
+        <main className="flex min-h-screen flex-col items-center justify-between bg-ownCreme">
         <Navbar/>
           {children}
         <Footer/>

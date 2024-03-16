@@ -33,6 +33,10 @@
     --ring: 222.2 84% 4.9%;
  
     --radius: 0.5rem;
+
+    --ownCreme: #F8F5EA;
+    --ownOrange: #F9B233;
+    --ownPink: #F5B6D3;
   }
  
   .dark {
@@ -63,6 +67,10 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+
+    --ownCreme: #F8F5EA;
+    --ownOrange: #F9B233;
+    --ownPink: #F5B6D3;
   }
 }
  
@@ -72,5 +80,14 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  .bg-ownOrange{
+    background-color: var(--ownOrange);
+  }
+  .bg-ownCreme{
+    background-color: var(--ownCreme);
+  }
+  .bg-ownPink{
+    background-color: var(--ownPink);
   }
 }
