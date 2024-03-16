@@ -9,13 +9,13 @@ import { MdEgg } from "react-icons/md";
 export default function Navbar() {
   const [ShowNavbar, ShowSetNavbar] = useState(false);
   return (
-    <nav className="w-full bg-ownOrange shadow">
+    <nav className="w-full bg-ownCreme shadow">
       <div className={` px-4 mx-auto lg:max-w-7xl items-center justify-center flex `/*md:items-center md:flex md:px-8*/}>
         <div>
           <div className="flex items-center justify-between py-1 md:py-5 md:block">
             <Link href={"/"} as={"/"} className="flex items-center">
-             <MdEgg className="text-white text-xl mr-3"/>
-              <h2 className="text-xl text-white font-bold">
+             <MdEgg className=" text-xl mr-3"/>
+              <h2 className="text-xl font-bold">
                Born.ai
               </h2>
             </Link>
