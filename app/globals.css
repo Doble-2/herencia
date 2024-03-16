@@ -37,6 +37,8 @@
     --ownCreme: #F8F5EA;
     --ownOrange: #F9B233;
     --ownPink: #F5B6D3;
+    --ownLightBlue:#7D9daf;
+    --ownDarkBlue:#2A3034;
   }
  
   .dark {
@@ -71,6 +73,8 @@
     --ownCreme: #F8F5EA;
     --ownOrange: #F9B233;
     --ownPink: #F5B6D3;
+    --ownLightBlue:#7D9daf;
+    --ownDarkBlue:#2A3034;
   }
 }
  
@@ -89,6 +93,13 @@
   }
   .color-ownPink{
     color: var(--ownPink);
+  }
+  .color-ownLightBlue{
+    color: var(--ownLightBlue);
+  }
+  .bg-ownLightBlue{
+    background-color: var(--ownLightBlue);
+    @apply color-ownCreme;
   }
   .bg-ownOrange{
     background-color: var(--ownOrange);
