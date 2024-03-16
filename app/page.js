@@ -8,7 +8,7 @@ export default function Home() {
 
   return <div>
       <animated.div style={props}>
-        <a onClick={showModal}> <EggAnimation/></a>
+        <a onClick={print('showmodal')}> <EggAnimation/></a>
    
     </animated.div>
   </div>;
