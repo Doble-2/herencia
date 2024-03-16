@@ -79,7 +79,7 @@ const AccordionTrigger = React.forwardRef(
       </Accordion.Trigger>
     </Accordion.Header>
   )
-);
+);AccordionTrigger.displayName = 'AccordionTrigger';
 
 const AccordionContent = React.forwardRef(
   ({ children, className, ...props }, forwardedRef) => (
@@ -97,6 +97,7 @@ const AccordionContent = React.forwardRef(
     </Accordion.Content>
   )
 );
+AccordionContent.displayName = 'AccordionContent';
 /*onSelect(selectedList, selectedItem) {
   print(selectedItem);
 };
