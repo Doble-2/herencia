@@ -2,6 +2,8 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
+
+
 import Image from "next/image";
 import { MdEgg } from "react-icons/md";
 export default function Navbar() {
