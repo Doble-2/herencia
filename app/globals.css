@@ -6,6 +6,10 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  --BornCreme:#F8F5EA;
+  --BornOrange:#F9B233;
+  --BornRose:#F5B6D3;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,4 +34,18 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+.nav {
+@apply bg-bornOrange;
+}
+
+.bg-bornRose{
+  background-color: var(--BornRose)
+}
+
+.bg-bornOrange{
+  background-color: var(--BornOrange)
+}
+.bg-bornCreme{
+  background-color: var(--BornCreme)
 }
