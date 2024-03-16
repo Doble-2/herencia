@@ -102,7 +102,7 @@ const AccordionContent = React.forwardRef(
       <div className=" mb-5  px-3 items-center gap-3 rounded-md  text-sm">
         <div className="mb-3">Rasgos</div>
         {rasgos.map((rasgo) => (
-          <div className=" mb-5  px-3 items-center gap-3 rounded-md flex text-sm">
+          <div key={rasgo.name} className=" mb-5  px-3 items-center gap-3 rounded-md flex text-sm">
             <div className="mb-3">{rasgo.name}</div>
             <select>
               {rasgo.values.map((option) => (
