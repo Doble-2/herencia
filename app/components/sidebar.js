@@ -1,54 +1,35 @@
-import React from "react";
 
 import { MdLogout } from "react-icons/md";
 import * as Accordion from "@radix-ui/react-accordion";
 //import { ChevronDownIcon } from "@radix-ui/react-icons";
 import Multiselect from "multiselect-react-dropdown";
-
-const parents = [
-  {
-    name: "Abuelo Paterno",
-    code: "abuelo_paterno",
-  },
-  {
-    name: "Abuela Paterna",
-    code: "abuela_paterna",
-  },
-  {
-    name: "Abuelo Materno",
-    code: "abuelo_materno",
-  },
-  {
-    name: "Abuela Materna",
-    code: "abuela_materna",
-  },
-  {
-    name: "Padre",
-    code: "padre",
-  },
-  {
-    name: "Madre",
-    code: "madre",
-  },
-];
-
-const enfermedades = [
-  "Diabetes",
-  "Hipertensión",
-  "Cáncer",
-  "Enfermedades del corazón",
-  "Enfermedades pulmonares",
-  "Enfermedades renales",
-  "Enfermedades hepáticas",
-];
-
-const rasgos = [
-  { name: "Color de ojos", values: ["Zafiro", "Esmeralda", "Avellana"] },
-
-  { name: "Cabello", values: ["Lacio", "Ondulado", "Rizado"] },
-];
+import React, { useState } from "react";
 
 const Sidebar = () => {
+  const [parientes, setParientes] = useState({});
+
+  const onSelect = (selectedList, selectedItem, parentCode) => {
+    setParientes({
+      ...parientes,
+      [parentCode]: {
+        ...parientes[parentCode],
+        enfermedades: selectedList,
+      },
+    });
+    console.log(parientes);
+  };
+
+  const onRemove = (selectedList, removedItem, parentCode) => {
+    setParientes({
+      ...parientes,
+      [parentCode]: {
+        ...parientes[parentCode],
+        enfermedades: selectedList,
+      },
+    });
+  };
+
+  
   return (
     <div className="scrollbar-trigger flex h-full w-full flex-1 items-start border-white/20">
       <nav className="flex h-full flex-1 flex-col space-y-1 p-2">
@@ -60,15 +41,19 @@ const Sidebar = () => {
               key={parent.code}
             >
               <AccordionTrigger>{parent.name}</AccordionTrigger>
-              <AccordionContent>
+              <AccordionContent onRemove={onRemove} onSelect={onSelect} parent={parent} parientes={parientes}>
                 Yes. It adheres to the WAI-ARIA design pattern.
               </AccordionContent>
             </Accordion.Item>
           ))}
         </Accordion.Root>
       </nav>
+      <button onClick={console.log(parientes)}></button>
     </div>
   );
+
+  
+
 };
 const AccordionTrigger = React.forwardRef(
   ({ children, className, ...props }, forwardedRef) => (
@@ -87,15 +72,21 @@ const AccordionTrigger = React.forwardRef(
 AccordionTrigger.displayName = "AccordionTrigger";
 
 const AccordionContent = React.forwardRef(
-  ({ children, className, ...props }, forwardedRef) => (
+  ({ children, className, onRemove, onSelect,parent,parientes, ...props }, forwardedRef) => (
     <Accordion.Content {...props} ref={forwardedRef}>
       <div className=" mb-5  px-3 items-center gap-3 rounded-md  text-sm">
         <div className="mb-3">Enfermedades</div>
         <Multiselect
           options={enfermedades}
           isObject={false}
-          // onSelect={this.onSelect} // Function will trigger on select event
-          // onRemove={this.onRemove} // Function will trigger on remove event
+          selectedValues={parent.code in parientes ? parientes[parent.code].enfermedades : []}
+        
+          onSelect={(selectedList, selectedItem) =>
+            onSelect(selectedList, selectedItem, parent.code)
+          }
+          onRemove={(selectedList, removedItem) =>
+            onRemove(selectedList, removedItem, parent.code)
+          }
         />
       </div>
 
@@ -118,11 +109,4 @@ const AccordionContent = React.forwardRef(
   )
 );
 AccordionContent.displayName = "AccordionContent";
-/*onSelect(selectedList, selectedItem) {
-  print(selectedItem);
-};
-
-onRemove(selectedList, removedItem) {
-  print(removedItem);
-};*/
 export default Sidebar;
