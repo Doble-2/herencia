@@ -43,10 +43,10 @@ export  function StepResult() {
             <div key={key}>
                <p >{key}:
                {Object.entries(value).map(([subKey, subValue]) => (
-            <p key={subKey}>{subKey}:{JSON.stringify(subValue)}</p>
+            <span key={subKey}>{subKey}:{JSON.stringify(subValue)}; </span>
             ))}
 
-</p>
+            </p>
             </div>
            
           ))}
