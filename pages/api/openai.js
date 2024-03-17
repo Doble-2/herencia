@@ -1,11 +1,13 @@
-import { DEFAULT_OPENAI_MODEL } from "@/shared/Constants";
-import { OpenAIModel } from "@/types/Model";
 import * as dotenv from "dotenv";
-import { NextApiRequest, NextApiResponse } from "next";
-import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from "openai";
+import {  Configuration, OpenAIApi } from "openai";
 
 // Get your environment variables
 dotenv.config();
+const DEFAULT_OPENAI_MODEL = {
+  name: "Default (GPT-3.5)",
+  id: "gpt-3.5-turbo",
+  available: true,
+};
 
 // OpenAI configuration creation
 const configuration = new Configuration({

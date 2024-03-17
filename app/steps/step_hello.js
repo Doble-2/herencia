@@ -1,10 +1,8 @@
 import React,{useState} from "react";
-import { useSpring, animated } from "react-spring";
 import EggAnimation from "./../components/egg";
 import { useFormStep } from "../hooks/use-form-step";
 
 export  function StepHello() {
-    const props = useSpring({ opacity: 1 });
   const [isComponentVisible, setIsComponentVisible] = useState(false);
   const toggleComponentVisibility = () => {
     setIsComponentVisible(!isComponentVisible);

@@ -3,6 +3,7 @@ import { useFormStep } from "../hooks/use-form-step";
 import { StepInitial } from "../steps/step_initial";
 import { StepHello } from "../steps/step_hello";
 import { StepForm } from "../steps/step_form";
+import { StepResult } from "../steps/step_result";
 /*import { Plans } from "./Plans";
 import { AddOns } from "./AddOns";
 import { Summary } from "./Summary";*/
@@ -22,7 +23,7 @@ const steps = [
   },
   {
     step: 4,
-    component: StepHello,
+    component: StepResult,
   },
 ];
 

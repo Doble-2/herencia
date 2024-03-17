@@ -5,6 +5,7 @@ import Sidebar from "./components/sidebar";
 import MobileSidebar from "./components/mobile-sidebar";
 import { useState } from "react";
 import { FormStepProvider } from "./context/step_context";
+import { FormProvider } from "./context/form_context";
 import FormStep from "./components/steps";
 
 export default function Home() {
@@ -15,7 +16,7 @@ export default function Home() {
   };
   return (
     <FormStepProvider>
-      
+      <FormProvider>
       <FormStep />
       <div className="flex justify-center items-center w-full h-full">
         {/*isComponentVisible ? (
@@ -28,6 +29,7 @@ export default function Home() {
           </div>
         ) : null*/}
       </div>
+      </FormProvider>
     </FormStepProvider>
   );
 }
