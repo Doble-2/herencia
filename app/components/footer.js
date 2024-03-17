@@ -5,7 +5,7 @@ import { IoLogoFigma } from "react-icons/io5";
 
 export default function Footer() {
   return (
-    <div className="w-full bg-ownCreme  bg-[#D9D9D9] flex flex-row md:items-center justify-center	items-center flex-nowrap	">
+    <div className="w-full bg-[#D9D9D9] flex flex-row md:items-center justify-center	items-center flex-nowrap	">
       <div class="basis-1/2">01</div>
       <div class="basis-1/2 px-10 vw100 lg:py-10 py-5  md:flex"> 
           <span className="text-lg  font-bold justify-center flex  sm:text-center">

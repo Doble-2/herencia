@@ -89,9 +89,22 @@ export function StepForm() {
       },
     });
   };
+
+  const handleHeightChange = (height, parentCode) => {
+    setParentsData({
+      ...parentsData,
+      [parentCode]: {
+        ...parentsData[parentCode],
+        rasgos: {
+          ...parentsData[parentCode].rasgos,
+          'Altura': height,
+        },
+      },
+    });
+  };
   return (
     <>
-      <div className="w-screen">
+      <div className="w-screen p-5">
         <div className="flex flex-row items-center justify-center">
           <div class="basis-1/2 relative md:flex items-center justify-center hidden">
             <div className=" ">
@@ -103,7 +116,7 @@ export function StepForm() {
               />
             </div>
           </div>
-          <div class="md:basis-1/2">
+          <div class="md:basis-2/3">
             <div className="scrollbar-trigger flex h-full w-full text-white">
               <nav className="flex h-full flex-1 flex-col space-y-1 p-2">
                 <Accordion.Root
@@ -132,6 +145,8 @@ export function StepForm() {
                             handleSelect={onSelect}
                             parentCode={parent.code}
                             handleRasgo={handleRasgoChange}
+                            handleHeightChange={handleHeightChange}
+                            parentsData={parentsData}
                           ></AccordionContent>
                         </Accordion.Item>
                       </div>
@@ -186,15 +201,21 @@ const AccordionContent = React.forwardRef(
       parentCode,
       handleRemove,
       handleRasgo,
+      handleHeightChange,
+      parentsData,
       ...props
     },
     forwardedRef
   ) => (
     <Accordion.Content {...props} ref={forwardedRef}>
-      <div className=" mb-5  px-3 items-center gap-3 rounded-md  text-sm">
+      <div className="bg-ownCreme max-h-64	rounded-lg p-1 overflow-auto">
+      <div className=" mb-5 flex-col md:flex-row px-3 items-center gap-3 rounded-md  text-sm ">
         <div className="mb-3">Enfermedades</div>
         <Multiselect
-          className="bg-ownCreme"
+          className={
+            "bg-ownCreme  bg-[#D9D9D9] peer block min-h-[auto] w-full rounded border-0   leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
+          }
+          selectedValues={parentsData[parentCode].enfermedades}
           options={enfermedades}
           isObject={false}
           onRemove={(selectedList) => handleRemove(selectedList, parentCode)}
@@ -203,17 +224,23 @@ const AccordionContent = React.forwardRef(
       </div>
 
       <div className=" mb-5  px-3 items-center gap-3 rounded-md  text-sm">
-        <div className="mb-3">Rasgos</div>
+        <div className="mb-3">Caracteristicas</div>
         {rasgos.map((rasgo) => (
           <div
             key={rasgo.name}
-            className=" mb-5  px-3 items-center gap-3 rounded-md flex text-sm"
+            className=" mb-5 flex-col md:flex-row px-3 items-center gap-3 rounded-md flex text-sm"
           >
-            <div className="mb-3">{rasgo.name}</div>
+            <div className="mb-3 ">{rasgo.name}</div>
             <select
+            value={parentsData[parentCode].rasgos[rasgo.name]!=null?parentsData[parentCode].rasgos[rasgo.name]:""}
+              className={
+                "bg-ownCreme  bg-[#D9D9D9] peer block min-h-[auto] w-full rounded border-0 px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
+              }
               onChange={(event) => handleRasgo(event, rasgo.name, parentCode)}
             >
+               <option hidden value="">Seleccione un {rasgo.name}</option>
               {rasgo.values.map((option) => (
+                
                 <option key={option} value={option}>
                   {option}
                 </option>
@@ -221,10 +248,20 @@ const AccordionContent = React.forwardRef(
             </select>
           </div>
         ))}
+
+        <div className=" mb-5  px-3 items-center flex gap-3 rounded-md flex-col md:flex-row text-sm">
+          <div className="mb-3">Altura</div>
+          <input
+          value={parentsData[parentCode].rasgos.Altura!=null?parentsData[parentCode].rasgos.Altura:""}
+            type="number"
+            className="bg-ownCreme  bg-[#D9D9D9] peer block min-h-[auto] w-full rounded border-0 px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
+            min={1.2}
+            max={3.0}
+            onChange={(event) => handleHeightChange(event.target.value,  parentCode)}
+            
+          ></input>
+        </div>
       </div>
-      <div className=" mb-5  px-3 items-center gap-3 rounded-md  text-sm">
-        <div className="mb-3">Altura</div>
-        <input type="number" min={1.2} max={3.0}></input>
       </div>
     </Accordion.Content>
   )
