@@ -47,7 +47,9 @@ const parents = [
     { name: "Color de ojos", values: ["Zafiro", "Esmeralda", "Avellana"] },
   
     { name: "Cabello", values: ["Lacio", "Ondulado", "Rizado"] },
+
   ];
+ 
   
 export function StepForm() {
     
@@ -152,11 +154,16 @@ const AccordionTrigger = React.forwardRef(
                     {option}
                   </option>
                 ))}
-              </select>
+              </select>       
             </div>
           ))}
         </div>
+        <div className=" mb-5  px-3 items-center gap-3 rounded-md  text-sm">
+          <div className="mb-3">Altura</div>
+          <input type="number" min={1.20} max={3.00}></input>
+        </div>
       </Accordion.Content>
+      
     )
   );
   AccordionContent.displayName = "AccordionContent";
