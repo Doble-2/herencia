@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import EggAnimation from "./../components/egg";
 import { useFormStep } from "../hooks/use-form-step";
+import Image from "next/image";
 
 export function StepHello() {
   const [isComponentVisible, setIsComponentVisible] = useState(false);
@@ -14,10 +15,10 @@ export function StepHello() {
       <div className="flex flex-row items-center">
         <div class="basis-1/2 relative md:flex items-center justify-center hidden">
           <div className="pb-16 absolute self-start">
-            <img src={"PATITO.svg"} alt="Two snowmen" width="130" height="90" />
+            <Image src={"PATITO.svg"} alt="Two snowmen" width="130" height="90" />
           </div>
           <div className="mb-8 absolute">
-            <img
+            <Image
               src={"Papas1.svg"}
               alt="Two snowmen"
               width="300"

@@ -98,7 +98,7 @@ export const FormProvider = ({ children }) => {
     if (parentsDataFromLocalStorage) {
         setParentsData(parentsDataFromLocalStorage)
     }
-  }, [])
+  }, [getValueFromLocalStorage('parentsData')])
 
   const value = {
     parentsData,

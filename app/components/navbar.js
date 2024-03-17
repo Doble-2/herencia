@@ -11,7 +11,7 @@ export default function Navbar() {
     <nav class="bg-[#F8F5EA] rounded-[20px] shadow-md mt-2  ">
       <div class=" flex justify-between">
         <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-          <img class="w-fit h-12	" src={"Recurso2.svg"} />
+          <Image class="w-fit h-12	" src={"Recurso2.svg"} alt="logo" />
         </a>
         <div class="max-w-screen-xl w-fit flex flex-wrap items-center justify-between p-4">
           <button

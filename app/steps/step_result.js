@@ -18,7 +18,7 @@ export  function StepResult() {
   useEffect(() => {
    
   fetchData( parentsData, selectedModel, setResponse, setIsLoading)
-  }, [parentsData]);
+  }, [parentsData,selectedModel]);
 
 
   return (

@@ -5,6 +5,7 @@ import * as Accordion from "@radix-ui/react-accordion";
 //import { ChevronDownIcon } from "@radix-ui/react-icons";
 import Multiselect from "multiselect-react-dropdown";
 import { useFormStep } from "../hooks/use-form-step";
+import Image from "next/image";
 import { useForm } from "../hooks/use-form";
 const parents = [
   {
@@ -92,7 +93,7 @@ export function StepForm() {
         <div className="flex flex-row items-center justify-center">
           <div class="basis-1/2 relative md:flex items-center justify-center hidden">
             <div className=" ">
-              <img
+              <Image
                 src={"PATITO.svg"}
                 alt="Two snowmen"
                 width="130"
@@ -111,6 +112,7 @@ export function StepForm() {
                   <div className="flex flex-wrap -mx-2 overflow-hidden sm:-mx-1 md:-mx-px lg:-mx-2 xl:-mx-1">
                     {parents.map((parent, index) => (
                       <div
+                      key={parent.code}
                         className={
                           index % 2 === 0
                             ? "my-2 px-2 w-full overflow-hidden sm:my-1 sm:px-1 sm:w-1/2 md:my-px md:px-px md:w-1/2 lg:my-2 lg:px-2 w-1/2 xl:my-1 xl:px-1 xl:w-1/2"
@@ -146,7 +148,7 @@ export function StepForm() {
 }
 const EggArrow = React.forwardRef(({ active }, ref = { forwardedRef }) => (
   <div className="w-4 h-4">
-    <img
+    <Image
       className={active ? "transform rotate-180" : "transform rotate-0"}
       src={"ICONO FLECHA.svg"}
       alt="Two snowmen"
