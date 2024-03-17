@@ -5,21 +5,21 @@ import { IoLogoFigma } from "react-icons/io5";
 import Image from "next/image";
 export default function Footer() {
   return (
-    <div className="w-full bg-ownCreme  bg-[#D9D9D9] flex flex-row md:items-center justify-center	items-center flex-nowrap	">
+    <div className="w-full bg-ownCreme bg-[#D9D9D9] flex flex-row md:items-center justify-center	items-center flex-nowrap	">
       <div class="basis-1/2">
-          <Image width={20} height={20} class="w-fit h-12 ml-6" src={"Recurso2.svg"} alt="logo"/>
+          <Image width={40} height={40} class="w-max h-14 ml-6" src={"Recurso2.svg"} alt="logo"/>
       </div>
       <div class="basis-1/2 px-10 vw100 lg:py-10 py-5  md:flex text-center"> 
-          <span className="text-lg font-bold sm:text-center text-center">
+          <span className="text-base font-bold sm:text-center text-center">
             {" "}
             Desarrollado con Cero Presión
           </span>
       </div>
-      <div class="basis-1/4"><div className="flex mt-4 space-x-6 opacity-1 justify-center md:mt-0">
+      <div class="basis-1/4"><div className="flex mt-6 space-x-6 opacity-1 justify-center md:mt-0">
             <a
               href="https://github.com/Doble-2"
               target="blank"
-              className=""
+              className="text-2xl	"
             >
               <FaGithub />
               <span className="sr-only">GitHub account</span>
@@ -27,7 +27,7 @@ export default function Footer() {
             <a
               href="https://github.com/Doble-2"
               target="blank"
-              className=""
+              className="text-2xl	"
             >
               <IoLogoFigma />
               <span className="sr-only">GitHub account</span>
