@@ -14,9 +14,11 @@ import {
   NavigationMenuTrigger,
   NavigationMenuViewport,
 } from "@/components/ui/navigation-menu"
+import { useFormStep } from "../hooks/use-form-step";
 
 export default function Navbar() {
   const [ShowNavbar, ShowSetNavbar] = useState(false);
+  const { currentStep , handleNextStep, handlePreviousStep , moveToStep} = useFormStep();
   return (
     <div className="px-5 z-50	 w-full absolute">
       <nav class="bg-[#F8F5EA] rounded-[20px] shadow-md mt-2  ">
@@ -50,11 +52,11 @@ export default function Navbar() {
                 />
               </svg>
             </button>
-            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-              <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 text-lg	text-center">
+            <div class="hidden w-full md:block md:w-auto flex items-center" id="navbar-default">
+              <ul class="font-medium  flex items-center flex-col p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 text-lg	text-center">
                 <li>
                   <a
-                    href="#"
+                   onClick={() => moveToStep(1)}
                     class="block mr-4 ml-4  text-[#F9B233] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#C79030] md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                   >
                     Inicio
@@ -70,7 +72,7 @@ export default function Navbar() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                  onClick={() => moveToStep(2)}
                     class="block mr-4 ml-4  text-[#F9B233] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#C79030] md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                   >
                     Encuesta
@@ -80,13 +82,15 @@ export default function Navbar() {
                 <NavigationMenu>
                   <NavigationMenuList>
                     <NavigationMenuItem>
-                      <NavigationMenuTrigger>Enlaces</NavigationMenuTrigger>
+                      <NavigationMenuTrigger 
+                      style=  {{fontSize: 'large'}}
+                       className={'bg-transparent text-[#F9B233] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#C79030] md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent'}>Enlaces</NavigationMenuTrigger>
                       <NavigationMenuContent className="flex flex-col-reverse divide-y divide-y-reverse p-3 text-[#F9B233] ">
                         <NavigationMenuLink>
-                          <Link href="https://github.com/Doble-2" legacyBehavior passHref className="hover:text-[#C79030]">Repositorio</Link>
+                          <Link href="https://github.com/Doble-2/herencia" legacyBehavior passHref className="hover:text-[#C79030]">Repositorio</Link>
                         </NavigationMenuLink>
                         <NavigationMenuLink>
-                          <Link href="https://github.com/Doble-2" legacyBehavior passHref className="hover:text-[#C79030]">Figma</Link>
+                          <Link href="https://www.figma.com/file/566oMBac0hxjfqRrEy6yEF/codicon?type=design&node-id=0%3A1&mode=design&t=KUBLPeULZ0qrmSQU-1" legacyBehavior passHref className="hover:text-[#C79030]">Figma</Link>
                         </NavigationMenuLink>
                       </NavigationMenuContent>
                     </NavigationMenuItem>
@@ -105,7 +109,8 @@ export default function Navbar() {
           <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 text-lg	text-center ">
             <li>
               <a
-                href="#"
+                                 onClick={() => moveToStep(1)}
+
                 class="block mr-4 ml-4  text-[#F9B233] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#C79030] md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 Inicio
@@ -121,7 +126,7 @@ export default function Navbar() {
             </li>
             <li>
               <a
-                href="#"
+              onClick={() => moveToStep(2)}
                 class="block mr-4 ml-4  text-[#F9B233] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#C79030] md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 Encuesta

@@ -45,7 +45,7 @@ const enfermedades = [
     3. ⁠Consume alimentos vegetales saludables.
     4. Consume grasas saludables
     5. ⁠Omite las dietas relámpago y toma decisiones más saludables*/,
-  "Hipertensión",/* Es probable que si alguno de tus padres sufria hipertension se tiene riesgo de sufrir hipertencion
+  "Hipertensión" /* Es probable que si alguno de tus padres sufria hipertension se tiene riesgo de sufrir hipertencion
   pero se puede reducir posibilidades de reducirlas si: Reducir el consumo de la sal.
   Mantener una alimentación sana, rica en frutas y verduras.
   Mantener un peso saludable (evitar el sobrepeso y la obesidad).
@@ -55,19 +55,19 @@ const enfermedades = [
   Evitar consumir bebidas alcohólicas en exceso.
   Dormir de 6 a 8 horas diarias.
   Consumir regularmente la medicación si está indicado.*/,
+  ,
   "Fibrosis quística" /* Es una enfermedad que provoca la acumulación de moco pegajoso en los pulmones, el tubo digestivo 
   y otras areas del cuerpo.Es uno de las enfermedade mas comunes en niños y adultos jovenes. Es una enfermedad que 
   potencialmente puede ser peligrosa.
   Los síntomas mas notables son: Esterelidad (en hombres), Inflamacion repetitiva del páncreas (pancrattis) ,
   sintomas respiratorios, dedos malformados
   Tratamientos: Antibioticos,medicamentos inhalados, vacunas antigripal, Actividades y ejercicios para mejorar
-  la respiración y una dieta especial y rica en proteínas*/ 
-  ,
-  "Enfermedades de Huntington"/* a enfermedad de Huntington es una enfermedad hereditaria que provoca el desgaste de algunas células nerviosas del cerebro.
+  la respiración y una dieta especial y rica en proteínas*/,
+  "Enfermedades de Huntington" /* a enfermedad de Huntington es una enfermedad hereditaria que provoca el desgaste de algunas células nerviosas del cerebro.
    Las personas nacen con el gen defectuoso pero los síntomas no aparecen hasta después de los 30 o 40 años. 
    Los síntomas iniciales de esta enfermedad pueden incluir movimientos descontrolados, torpeza y problemas de equilibrio. 
    Más adelante, puede impedir caminar, hablar y tragar. Conjunto de enfermedades genéticas que ocasionan debilidad y pérdida progresiva de la masa muscular.
-  Las distrofias musculares son degeneraciones de los músculos ocasionadas por genes anormales (mutaciones). La mayoría de las veces aparecen en la niñez. */ ,
+  Las distrofias musculares son degeneraciones de los músculos ocasionadas por genes anormales (mutaciones). La mayoría de las veces aparecen en la niñez. */,
   ,
   "Hipercolesterolemia familiar" /* La hipercolesterolemia familiar es un trastorno que se transmite de padres a hijos.
    Esta enfermedad provoca que el nivel de colesterol LDL (malo) sea muy alto.
@@ -92,9 +92,8 @@ const enfermedades = [
   Coma menos carne de res, pollo, cerdo y cordero
   Reemplace los productos lácteos ricos en grasa con productos bajos en grasa
   Elimine las grasas trans
-  En otros casos por tomar medicamentos*/
-  
-];  
+  En otros casos por tomar medicamentos*/,
+];
 
 const rasgos = [
   { name: "Color de ojos", values: ["Zafiro", "Esmeralda", "Avellana"] },
@@ -102,10 +101,7 @@ const rasgos = [
   { name: "Cabello", values: ["Lacio", "Ondulado", "Rizado"] },
 
   { name: "Color de piel", values: ["Blanca", "Trigueña", "Morena", "Negra"] },
-
 ];
-
-
 
 export function StepForm() {
   const { handleNextStep, handlePreviousStep } = useFormStep();
@@ -151,7 +147,7 @@ export function StepForm() {
         ...parentsData[parentCode],
         rasgos: {
           ...parentsData[parentCode].rasgos,
-          'Altura': height,
+          Altura: height,
         },
       },
     });
@@ -206,13 +202,21 @@ export function StepForm() {
                       </div>
                     ))}
                   </div>
+                  <div className="flex justify-center">
+                  <button
+                    onClick={handleNextStep}
+                    class="bg-ownOrange mx-5 font-bold py-2 px-4 rounded"
+                  >
+                    Completar formulario
+                  </button>
+               
+                  </div>
                 </Accordion.Root>
               </nav>
             </div>
           </div>
         </div>
-        <button onClick={handlePreviousStep}>prev</button>
-        <button onClick={handleNextStep}>sig</button>
+       
       </div>
     </>
   );
@@ -234,7 +238,8 @@ const AccordionTrigger = React.forwardRef(
   ({ children, className, ...props }, forwardedRef) => (
     <Accordion.Header>
       <Accordion.Trigger
-        className="flex font-bold	 py-2 px-3 w-full items-center gap-3 rounded-md hover:bg-gray-500/10 transition-colors duration-200 cursor-pointer text-sm"
+         style=  {{fontSize: 'large'}}
+        className= "flex  font-bold	text-center  py-2 px-3 w-full items-center gap-3 rounded-md hover:bg-gray-500/10 transition-colors duration-200 cursor-pointer text-sm"
         {...props}
         ref={forwardedRef}
       >
@@ -263,59 +268,69 @@ const AccordionContent = React.forwardRef(
   ) => (
     <Accordion.Content {...props} ref={forwardedRef}>
       <div className="bg-ownCreme max-h-64	rounded-lg p-1 overflow-auto">
-      <div className=" mb-5 flex-col md:flex-row px-3 items-center gap-3 rounded-md  text-sm ">
-        <div className="mb-3">Enfermedades</div>
-        <Multiselect
-          className={
-            "bg-ownCreme  bg-[#D9D9D9] peer block min-h-[auto] w-full rounded border-0   leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
-          }
-          selectedValues={parentsData[parentCode].enfermedades}
-          options={enfermedades}
-          isObject={false}
-          onRemove={(selectedList) => handleRemove(selectedList, parentCode)}
-          onSelect={(selectedList) => handleSelect(selectedList, parentCode)}
-        />
-      </div>
-
-      <div className=" mb-5  px-3 items-center gap-3 rounded-md  text-sm">
-        <div className="mb-3">Caracteristicas</div>
-        {rasgos.map((rasgo) => (
-          <div
-            key={rasgo.name}
-            className=" mb-5 flex-col md:flex-row px-3 items-center gap-3 rounded-md flex text-sm"
-          >
-            <div className="mb-3 ">{rasgo.name}</div>
-            <select
-            value={parentsData[parentCode].rasgos[rasgo.name]!=null?parentsData[parentCode].rasgos[rasgo.name]:""}
-              className={
-                "bg-ownCreme  bg-[#D9D9D9] peer block min-h-[auto] w-full rounded border-0 px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
-              }
-              onChange={(event) => handleRasgo(event, rasgo.name, parentCode)}
-            >
-               <option hidden value="">Seleccione un {rasgo.name}</option>
-              {rasgo.values.map((option) => (
-                
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
-          </div>
-        ))}
-
-        <div className=" mb-5  px-3 items-center flex gap-3 rounded-md flex-col md:flex-row text-sm">
-          <div className="mb-3">Altura</div>
-          <input
-          value={parentsData[parentCode].rasgos.Altura!=null?parentsData[parentCode].rasgos.Altura:""}
-            type="number"
-            className="bg-ownCreme  bg-[#D9D9D9] peer block min-h-[auto] w-full rounded border-0 px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
-            min={1.2}
-            max={3.0}
-            onChange={(event) => handleHeightChange(event.target.value,  parentCode)}
-            
-          ></input>
+        <div className=" mb-5 flex-col md:flex-row px-3 items-center gap-3 rounded-md  text-sm ">
+          <div className="mb-3">Enfermedades</div>
+          <Multiselect
+            className={
+              "bg-ownCreme  bg-[#D9D9D9] peer block min-h-[auto] w-full rounded border-0   leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
+            }
+            selectedValues={parentsData[parentCode].enfermedades}
+            options={enfermedades}
+            isObject={false}
+            onRemove={(selectedList) => handleRemove(selectedList, parentCode)}
+            onSelect={(selectedList) => handleSelect(selectedList, parentCode)}
+          />
         </div>
-      </div>
+
+        <div className=" mb-5  px-3 items-center gap-3 rounded-md  text-sm">
+          <div className="mb-3">Caracteristicas</div>
+          {rasgos.map((rasgo) => (
+            <div
+              key={rasgo.name}
+              className=" mb-5 flex-col md:flex-row px-3 items-center gap-3 rounded-md flex text-sm"
+            >
+              <div className="mb-3 ">{rasgo.name}</div>
+              <select
+                value={
+                  parentsData[parentCode].rasgos[rasgo.name] != null
+                    ? parentsData[parentCode].rasgos[rasgo.name]
+                    : ""
+                }
+                className={
+                  "bg-ownCreme  bg-[#D9D9D9] peer block min-h-[auto] w-full rounded border-0 px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
+                }
+                onChange={(event) => handleRasgo(event, rasgo.name, parentCode)}
+              >
+                <option hidden value="">
+                  Seleccione un {rasgo.name}
+                </option>
+                {rasgo.values.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+            </div>
+          ))}
+
+          <div className=" mb-5  px-3 items-center flex gap-3 rounded-md flex-col md:flex-row text-sm">
+            <div className="mb-3">Altura</div>
+            <input
+              value={
+                parentsData[parentCode].rasgos.Altura != null
+                  ? parentsData[parentCode].rasgos.Altura
+                  : ""
+              }
+              type="number"
+              className="bg-ownCreme  bg-[#D9D9D9] peer block min-h-[auto] w-full rounded border-0 px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
+              min={1.2}
+              max={3.0}
+              onChange={(event) =>
+                handleHeightChange(event.target.value, parentCode)
+              }
+            ></input>
+          </div>
+        </div>
       </div>
     </Accordion.Content>
   )
