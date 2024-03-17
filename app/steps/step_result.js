@@ -36,12 +36,11 @@ export  function StepResult() {
         ) : <div className="p-6 bg-ownCreme overflow-auto max-h-[75vh]  max-w-sm mx-auto rounded-xl shadow-md flex-col flex items-center space-x-4">
        
           <div className="text-xl font-medium">Futuro Hijo</div>
-          <div>
-            </div>
-          <p className="">Rasgos:</p>
+          
+          <p className="self-start">Rasgos:</p>
           {response && Object.entries(response.futuro_hijo.rasgos).map(([key, value]) => (
             <div key={key}>
-               <p >{key}:
+               <p className="self-start" >{key}:
                {Object.entries(value).map(([subKey, subValue]) => (
             <span key={subKey}>{subKey}:{JSON.stringify(subValue)}; </span>
             ))}
@@ -50,9 +49,9 @@ export  function StepResult() {
             </div>
            
           ))}
-          <p className="">Predisposición a enfermedades:</p>
+          <p className="self-start">Predisposición a enfermedades:</p>
           {response && Object.entries(response.futuro_hijo.predisposicion_enfermedades).map(([key, value]) => (
-            <div key={key}>
+            <div className="self-start">
               <p>{key}:</p>
               <p>Probabilidad: {value.probabilidad}%</p>
               <p>Explicación: {value.explicacion}</p>
