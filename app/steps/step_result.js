@@ -34,14 +34,14 @@ export  function StepResult() {
               </a>
             </div>
           </div>
-        ) : <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
+        ) : <div className="p-6 bg-ownCreme   max-w-sm mx-auto rounded-xl shadow-md flex items-center space-x-4">
         <div>
-          <div className="text-xl font-medium bg-ownCreme  overflow-auto max-h-80">Futuro Hijo</div>
-          <p className="text-gray-500">Rasgos:</p>
+          <div className="text-xl font-mediumoverflow-auto max-h-80">Futuro Hijo</div>
+          <p className="">Rasgos:</p>
           {response && Object.entries(response.futuro_hijo.rasgos).map(([key, value]) => (
             <p key={key}>{key}: {JSON.stringify(value)}</p>
           ))}
-          <p className="text-gray-500">Predisposición a enfermedades:</p>
+          <p className="">Predisposición a enfermedades:</p>
           {response && Object.entries(response.futuro_hijo.predisposicion_enfermedades).map(([key, value]) => (
             <div key={key}>
               <p>{key}:</p>
