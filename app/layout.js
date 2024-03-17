@@ -8,15 +8,15 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  
   return (
     <html lang="en">
-      
       <body>
-        <main className="flex min-h-screen flex-col items-center justify-between bg-ownLightBlue">
-          <Navbar />
-          {children}
-          
+        {" "}
+        <Navbar />
+        <main className="flex  flex-col  bg-ownLightBlue  items-center justify-between">
+          <div className="pt-[74px] flex min-h-screen min-w-full	mx-auto items-center justify-center">
+            {children}
+          </div>
           <Footer />
         </main>
       </body>

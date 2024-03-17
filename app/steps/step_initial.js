@@ -9,16 +9,14 @@ export  function StepInitial() {
   };
   const { handleNextStep, handlePreviousStep } = useFormStep()
   return (
-    <div>
-      <div className="flex flex-1 flex-col">
+    
         <div >
           <a onClick={handleNextStep}>
             {" "}
             <EggAnimation />
           </a>
         </div>
-      </div>
-    </div>
+ 
   );
 };
 

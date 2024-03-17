@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import EggAnimation from "./../components/egg";
 import { useForm } from "../hooks/use-form";
+import{ fetchData} from './../../lib/request_openai';
 
 export  function StepResult() {
     const { parentsData, setParentsData } = useForm();
@@ -16,40 +17,7 @@ export  function StepResult() {
 
   useEffect(() => {
    
-const fetchData = async () => {
-    try {
-        console.log('hola');
-      const response = await fetch(`/api/openai`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          messages: [ { content: `tengo estos rasgos de parientes ${parentsData} 
-          puedes darme las caracteristicas fisicas y predisposion a enfermedades para un futuro hijo con este formato en porcentajes los rasgos y las posibles enfermedades con una pequena explicacion y recomendaciones?
-          
-          es importantisimos que me arrojes solo el json nada de informacion adicional`, role: "user" }],
-          model: selectedModel,
-        }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-
-        
-        setResponse(data.message);
-
-      } else {
-        console.error(response);
-       
-      }
-    } catch (error) {
-      console.error(error);
-    }
-
-    setIsLoading(false);
-  };
-  fetchData();
+  fetchData( parentsData, selectedModel, setResponse, setIsLoading)
   }, [parentsData]);
 
 
@@ -61,7 +29,7 @@ const fetchData = async () => {
             loading{" "}
             <div>
               <a >
-                {" sadsadsasda"}
+                {"Cargando..."}
                 <EggAnimation />
               </a>
             </div>

@@ -18,7 +18,7 @@ export default function Home() {
     <FormStepProvider>
       <FormProvider>
       <FormStep />
-      <div className="flex justify-center items-center w-full h-full">
+      <div className="">
         {/*isComponentVisible ? (
           <div>
             <div className=" h-full rounded-2xl flex-shrink-0 bg-ownCreme justify-self-center flex md:w-[450px] md:flex-col">
