@@ -16,7 +16,7 @@ export function StepHello() {
         <div class="basis-1/2 relative md:flex items-center justify-center hidden">
           <div className="pb-16 absolute self-start">
             <Image
-              src={"PATITO.svg"}
+              src={"PATO NUBE.svg"}
               alt="Two snowmen"
               width="130"
               height="250"
@@ -24,7 +24,7 @@ export function StepHello() {
           </div>
           <div className="mb-8 absolute">
             <Image
-              src={"Papas1.svg"}
+              src={"PAPAS NUBES.svg"}
               alt="Two snowmen"
               width="300"
               height="350"
