@@ -16,7 +16,7 @@ export  function StepHello() {
     <div className="flex flex-row items-center">
       
       <div class="basis-1/2"><img
-        src=""
+        src="../img/PATITO.svg"
         alt="Two snowmen"
         className="mb-8"
         width="300"
