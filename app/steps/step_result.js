@@ -51,7 +51,7 @@ export  function StepResult() {
           ))}
           <p className="self-start">Predisposición a enfermedades:</p>
           {response && Object.entries(response.futuro_hijo.predisposicion_enfermedades).map(([key, value]) => (
-            <div className="self-start">
+            <div key={key} className="self-start">
               <p>{key}:</p>
               <p>Probabilidad: {value.probabilidad}%</p>
               <p>Explicación: {value.explicacion}</p>
