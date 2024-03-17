@@ -11,7 +11,7 @@ export function StepHello() {
   const { handleNextStep, handlePreviousStep } = useFormStep();
 
   return (
-    <div className="">
+    <div className="bg-cover bg-center bg-no-repeat bg-nubesfondo">
       <div className="flex flex-row items-center">
         <div class="basis-1/2 relative md:flex items-center justify-center hidden">
           <div className="pb-16 absolute self-start">

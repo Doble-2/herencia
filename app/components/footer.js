@@ -2,13 +2,15 @@ import React from "react";
 import { MdEgg } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
 import { IoLogoFigma } from "react-icons/io5";
-
+import Image from "next/image";
 export default function Footer() {
   return (
-    <div className="w-full bg-[#D9D9D9] flex flex-row md:items-center justify-center	items-center flex-nowrap	">
-      <div class="basis-1/2">01</div>
-      <div class="basis-1/2 px-10 vw100 lg:py-10 py-5  md:flex"> 
-          <span className="text-lg  font-bold justify-center flex  sm:text-center">
+    <div className="w-full bg-ownCreme  bg-[#D9D9D9] flex flex-row md:items-center justify-center	items-center flex-nowrap	">
+      <div class="basis-1/2">
+          <Image width={20} height={20} class="w-fit h-12 ml-6" src={"Recurso2.svg"} alt="logo"/>
+      </div>
+      <div class="basis-1/2 px-10 vw100 lg:py-10 py-5  md:flex text-center"> 
+          <span className="text-lg font-bold sm:text-center text-center">
             {" "}
             Desarrollado con Cero Presión
           </span>

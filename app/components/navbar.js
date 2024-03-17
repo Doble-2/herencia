@@ -46,7 +46,7 @@ export default function Navbar() {
               </svg>
             </button>
             <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-              <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 text-lg	 ">
+              <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 text-lg	text-center">
                 <li>
                   <a
                     href="#"
@@ -88,7 +88,7 @@ export default function Navbar() {
             ShowNavbar ? "block" : "hidden"
           }`}
         >
-          <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 text-lg	 ">
+          <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 text-lg	text-center ">
             <li>
               <a
                 href="#"
