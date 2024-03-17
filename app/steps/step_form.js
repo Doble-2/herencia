@@ -36,19 +36,21 @@ const parents = [
 ];
 
 const enfermedades = [
-  "Diabetes",
+  "Diabetes", //diabetes tipo 1 2 y prenatal 1>2
   "Hipertensión",
-  "Cáncer",
-  "Enfermedades del corazón",
-  "Enfermedades pulmonares",
-  "Enfermedades renales",
+  "Enfermedades del corazón", //busacar cuales
+  //"Enfermedades pulmonares",
   "Enfermedades hepáticas",
+  //enfermedades mentales
+  "Enfermedad de Huntington",
+  "Alopecia",
+  //
 ];
 
 const rasgos = [
-  { name: "Color de ojos", values: ["Zafiro", "Esmeralda", "Avellana"] },
-
-  { name: "Cabello", values: ["Lacio", "Ondulado", "Rizado"] },
+  { name: "Color de ojos", values: ["Zafiro", "Esmeralda", "Avellana"] }, //<zafiro<esmeraldas<avellanas
+  { name: "Rasgos", values: ["Zafiro", "Esmeralda", "Avellana"] },
+  { name: "Cabello", values: ["Lacio", "Ondulado", "Rizado"] }, //ondulado>rizado>lacio
 ];
 
 export function StepForm() {
@@ -112,7 +114,7 @@ export function StepForm() {
                   <div className="flex flex-wrap -mx-2 overflow-hidden sm:-mx-1 md:-mx-px lg:-mx-2 xl:-mx-1">
                     {parents.map((parent, index) => (
                       <div
-                      key={parent.code}
+                        key={parent.code}
                         className={
                           index % 2 === 0
                             ? "my-2 px-2 w-full overflow-hidden sm:my-1 sm:px-1 sm:w-1/2 md:my-px md:px-px md:w-1/2 lg:my-2 lg:px-2 w-1/2 xl:my-1 xl:px-1 xl:w-1/2"
@@ -192,6 +194,7 @@ const AccordionContent = React.forwardRef(
       <div className=" mb-5  px-3 items-center gap-3 rounded-md  text-sm">
         <div className="mb-3">Enfermedades</div>
         <Multiselect
+          className="bg-ownCreme"
           options={enfermedades}
           isObject={false}
           onRemove={(selectedList) => handleRemove(selectedList, parentCode)}
