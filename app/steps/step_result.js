@@ -40,9 +40,9 @@ export  function StepResult() {
        
           <div className="text-xl font-medium">Futuro Hijo</div>
           
-          <p className="self-start">Rasgos:</p>
+          <p className="self-start font-medium">Rasgos:</p>
           {response && Object.entries(response.futuro_hijo.rasgos).map(([key, value]) => (
-            <div className="self-start" key={key}>
+            <div className="self-start font-medium" key={key}>
                <p  >{key}:
                {Object.entries(value).map(([subKey, subValue]) => (
             <span key={subKey}>{subKey} {JSON.stringify(subValue)}% ; </span>
@@ -52,13 +52,13 @@ export  function StepResult() {
             </div>
            
           ))}
-          <p className="self-start">Predisposición a enfermedades:</p>
+          <p className="self-start font-medium">Predisposición a enfermedades:</p>
           {response && Object.entries(response.futuro_hijo.predisposicion_enfermedades).map(([key, value]) => (
-            <div key={key} className="self-start">
-              <p>{key}:</p>
-              <p>Probabilidad: {value.probabilidad}%</p>
-              <p>Explicación: {value.explicacion}</p>
-              <p>Recomendaciones: {value.recomendaciones}</p>
+            <div key={key} className="self-start font-medium">
+              <p className="font-medium">{key}:</p>
+              <p className="font-medium">Probabilidad: {value.probabilidad}%</p>
+              <p className="font-medium">Explicación: {value.explicacion}</p>
+              <p className="font-medium">Recomendaciones: {value.recomendaciones}</p>
             </div>
           ))}
        
