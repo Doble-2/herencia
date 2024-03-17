@@ -4,6 +4,17 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MdEgg } from "react-icons/md";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+} from "@/components/ui/navigation-menu"
+
 export default function Navbar() {
   const [ShowNavbar, ShowSetNavbar] = useState(false);
   return (
@@ -11,13 +22,7 @@ export default function Navbar() {
       <nav class="bg-[#F8F5EA] rounded-[20px] shadow-md mt-2  ">
         <div class=" flex justify-between">
           <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <Image
-              width={20}
-              height={20}
-              class="w-fit h-12	"
-              src={"Recurso2.svg"}
-              alt="logo"
-            />
+            <Image width={20} height={20} class="w-fit h-20	" src={"Recurso2.svg"} alt="logo" />
           </a>
           <div class="max-w-screen-xl w-fit flex flex-wrap items-center justify-between p-4">
             <button
@@ -71,13 +76,22 @@ export default function Navbar() {
                     Encuesta
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="#"
-                    class="block mr-4 ml-4 text-[#F9B233] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#C79030] md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                  >
-                    Enlaces
-                  </a>
+                <li class="block text-[#F9B233]">
+                <NavigationMenu>
+                  <NavigationMenuList>
+                    <NavigationMenuItem>
+                      <NavigationMenuTrigger>Enlaces</NavigationMenuTrigger>
+                      <NavigationMenuContent className="flex flex-col-reverse divide-y divide-y-reverse p-3 text-[#F9B233] ">
+                        <NavigationMenuLink>
+                          <Link href="https://github.com/Doble-2" legacyBehavior passHref className="hover:text-[#C79030]">Repositorio</Link>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink>
+                          <Link href="https://github.com/Doble-2" legacyBehavior passHref className="hover:text-[#C79030]">Figma</Link>
+                        </NavigationMenuLink>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem>
+                  </NavigationMenuList>
+                </NavigationMenu>
                 </li>
               </ul>
             </div>
@@ -126,4 +140,6 @@ export default function Navbar() {
       </nav>
     </div>
   );
+
+  
 }
