@@ -34,7 +34,24 @@ export  function StepResult() {
               </a>
             </div>
           </div>
-        ) : response}
+        ) : <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
+        <div>
+          <div className="text-xl font-medium text-black">Futuro Hijo</div>
+          <p className="text-gray-500">Rasgos:</p>
+          {response && Object.entries(response.futuro_hijo.rasgos).map(([key, value]) => (
+            <p key={key}>{key}: {JSON.stringify(value)}</p>
+          ))}
+          <p className="text-gray-500">Predisposición a enfermedades:</p>
+          {response && Object.entries(response.futuro_hijo.predisposicion_enfermedades).map(([key, value]) => (
+            <div key={key}>
+              <p>{key}:</p>
+              <p>Probabilidad: {value.probabilidad}%</p>
+              <p>Explicación: {value.explicacion}</p>
+              <p>Recomendaciones: {value.recomendaciones}</p>
+            </div>
+          ))}
+        </div>
+      </div>}
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import { MdEgg } from "react-icons/md";
 export default function Navbar() {
   const [ShowNavbar, ShowSetNavbar] = useState(false);
   return (
-    <div className="px-5 w-full absolute">
+    <div className="px-5 z-50	 w-full absolute">
       <nav class="bg-[#F8F5EA] rounded-[20px] shadow-md mt-2  ">
         <div class=" flex justify-between">
           <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">

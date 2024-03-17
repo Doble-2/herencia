@@ -11,7 +11,7 @@ export function StepHello() {
   const { handleNextStep, handlePreviousStep } = useFormStep();
 
   return (
-    <div className="bg-cover bg-center bg-no-repeat bg-nubesfondo">
+    <div className="">
       <div className="flex flex-row items-center">
         <div class="basis-1/2 relative md:flex items-center justify-center hidden">
           <div className="pb-16 absolute self-start">
@@ -26,7 +26,7 @@ export function StepHello() {
             />
           </div>
         </div>
-        <div class="md:basis-1/2">
+        <div class="md:basis-1/2 z-40">
           <p className="text-center text-white mb-8 font-extrabold px-5">
             ¡Hola! Soy Born y cuando estaba en la barriga de mi mamá, mis padres
             tenían miedo de cómo sería mi condición genética, así que decidieron
@@ -36,8 +36,8 @@ export function StepHello() {
           </p>
         </div>
       </div>
-      <button onClick={handlePreviousStep}>prev</button>
-      <button onClick={handleNextStep}>sig</button>
+      <button className="z-40" onClick={handlePreviousStep}>prev</button>
+      <button className="z-40" onClick={handleNextStep}>sig</button>
     </div>
   );
 }
