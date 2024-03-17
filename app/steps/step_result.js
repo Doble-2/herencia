@@ -39,8 +39,8 @@ export  function StepResult() {
           
           <p className="self-start">Rasgos:</p>
           {response && Object.entries(response.futuro_hijo.rasgos).map(([key, value]) => (
-            <div key={key}>
-               <p className="self-start" >{key}:
+            <div className="self-start" key={key}>
+               <p  >{key}:
                {Object.entries(value).map(([subKey, subValue]) => (
             <span key={subKey}>{subKey}:{JSON.stringify(subValue)}; </span>
             ))}
