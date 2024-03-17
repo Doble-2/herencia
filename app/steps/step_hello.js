@@ -15,7 +15,12 @@ export function StepHello() {
       <div className="flex flex-row items-center">
         <div class="basis-1/2 relative md:flex items-center justify-center hidden">
           <div className="pb-16 absolute self-start">
-            <Image src={"PATITO.svg"} alt="Two snowmen" width="130" height="90" />
+            <Image
+              src={"PATITO.svg"}
+              alt="Two snowmen"
+              width="130"
+              height="90"
+            />
           </div>
           <div className="mb-8 absolute">
             <Image
@@ -26,7 +31,7 @@ export function StepHello() {
             />
           </div>
         </div>
-        <div class="md:basis-1/2 z-40">
+        <div class="md:basis-1/2 z-40 flex items-center flex-col">
           <p className="text-center text-white mb-8 font-extrabold px-5">
             ¡Hola! Soy Born y cuando estaba en la barriga de mi mamá, mis padres
             tenían miedo de cómo sería mi condición genética, así que decidieron
@@ -34,10 +39,11 @@ export function StepHello() {
             totalmente sano. Con esta app puedes planificar tu embarazo con más
             tranquilidad así como lo hicieron mis papás
           </p>
+          <button onClick={handleNextStep} class="bg-ownOrange  font-bold py-2 px-4 rounded">
+            Empezar
+          </button>
         </div>
       </div>
-      <button className="z-40" onClick={handlePreviousStep}>prev</button>
-      <button className="z-40" onClick={handleNextStep}>sig</button>
     </div>
   );
 }

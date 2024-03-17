@@ -7,7 +7,8 @@ import { useState } from "react";
 import { FormStepProvider } from "./context/step_context";
 import { FormProvider } from "./context/form_context";
 import FormStep from "./components/steps";
-
+import Navbar from "./components/navbar";
+import Footer from "./components/footer";
 export default function Home() {
   const props = useSpring({ opacity: 1 });
   const [isComponentVisible, setIsComponentVisible] = useState(false);
@@ -17,18 +18,37 @@ export default function Home() {
   return (
     <FormStepProvider>
       <FormProvider>
-      <FormStep />
-      <div className="">
-        {/*isComponentVisible ? (
-          <div>
-            <div className=" h-full rounded-2xl flex-shrink-0 bg-ownCreme justify-self-center flex md:w-[450px] md:flex-col">
-              <div className="flex h-full min-h-0 flex-col ">
-                <Sidebar submit={console.log()} />
-              </div>
+        
+        <Navbar />
+        <div className="flex  flex-col  bg-ownLightBlue  items-center justify-between bg-cover bg-center bg-no-repeat bg-[url('../public/nubesfondo.svg')]">
+          <div className="flex min-h-screen min-w-full	mx-auto items-center justify-center">
+            <div className="absolute min-h-screen min-w-full z-20">
+              <Image
+                className=" w-screen  max-h-[400px] object-cover	object-bottom	"
+                src={"CONJUNTO DE NUBES SUPERIOR .svg"}
+                alt="Two snowmen"
+                width="130"
+                height="90"
+              />
+            </div>
+            <div className="z-40">
+            <FormStep />
+            </div>
+           
+            <div className="absolute min-h-screen min-w-full h-full flex items-end z-20">
+              <Image
+                className=" w-screen max-h-[30%] object-cover	object-top	"
+                src={"CONJUNTO DE NUBES INFERIOS.svg"}
+                alt="Two snowmen"
+                width="130"
+                height="90"
+              />
             </div>
           </div>
-        ) : null*/}
-      </div>
+          <Footer />
+        </div>
+     
+           
       </FormProvider>
     </FormStepProvider>
   );

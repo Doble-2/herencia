@@ -17,7 +17,7 @@ export default function Footer() {
       </div>
       <div class="basis-1/4"><div className="flex mt-6 space-x-6 opacity-1 justify-center md:mt-0">
             <a
-              href="https://github.com/Doble-2"
+              href="https://github.com/Doble-2/herencia"
               target="blank"
               className="text-2xl	"
             >
@@ -25,7 +25,7 @@ export default function Footer() {
               <span className="sr-only">GitHub account</span>
             </a>
             <a
-              href="https://github.com/Doble-2"
+              href="https://www.figma.com/file/566oMBac0hxjfqRrEy6yEF/codicon?type=design&node-id=0%3A1&mode=design&t=KUBLPeULZ0qrmSQU-1"
               target="blank"
               className="text-2xl	"
             >

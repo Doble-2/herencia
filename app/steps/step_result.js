@@ -26,16 +26,15 @@ export  function StepResult() {
       <div className="flex flex-1 flex-col">
         {IsLoading == true ? (
           <div>
-            loading{" "}
             <div>
-              <a >
+              <a  className="font-bold">
                 {"Cargando..."}
                 <EggAnimation />
               </a>
             </div>
           </div>
         ) : <div className="p-6 bg-ownCreme overflow-auto max-h-80  max-w-sm mx-auto rounded-xl shadow-md flex items-center space-x-4">
-        <div>
+       
           <div className="text-xl font-medium">Futuro Hijo</div>
           <p className="">Rasgos:</p>
           {response && Object.entries(response.futuro_hijo.rasgos).map(([key, value]) => (
@@ -50,7 +49,7 @@ export  function StepResult() {
               <p>Recomendaciones: {value.recomendaciones}</p>
             </div>
           ))}
-        </div>
+       
       </div>}
       </div>
     </div>
