@@ -1,6 +1,6 @@
 # Predicciones de Transmisión Genética
 
-Este proyecto fue desarrollado por el equipo Ceron Presion para la Codicon de Lexpin 2024. La página web realiza predicciones de transmisión genética basadas en diversos factores.
+Este proyecto fue desarrollado por el equipo Cero Presion para la Codicon de Lexpin 2024. La página web realiza predicciones de transmisión genética basadas en diversos factores.
 
 ## Características
 
