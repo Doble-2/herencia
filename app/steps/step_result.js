@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import EggAnimation from "./../components/egg";
 import { useForm } from "../hooks/use-form";
 import{ fetchData} from './../../lib/request_openai';
+import { useFormStep } from "../hooks/use-form-step";
 
 export  function StepResult() {
+  const { handleNextStep, handlePreviousStep } = useFormStep();
+
     const { parentsData, setParentsData } = useForm();
     const [response, setResponse] = useState(null);
 
