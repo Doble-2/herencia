@@ -19,7 +19,7 @@ export function StepHello() {
               src={"PATITO.svg"}
               alt="Two snowmen"
               width="130"
-              height="90"
+              height="250"
             />
           </div>
           <div className="mb-8 absolute">
@@ -27,7 +27,7 @@ export function StepHello() {
               src={"Papas1.svg"}
               alt="Two snowmen"
               width="300"
-              height="200"
+              height="350"
             />
           </div>
         </div>
