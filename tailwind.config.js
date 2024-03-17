@@ -18,7 +18,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'nubes.fondo': "url('../public/nubesfondo.svg')"
+        'nubesfondo': "url('../public/nubesfondo.svg')"
       },
       colors: {
         border: "hsl(var(--border))",
