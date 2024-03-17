@@ -36,13 +36,17 @@ export  function StepResult() {
         ) : <div className="p-6 bg-ownCreme overflow-auto max-h-80  max-w-sm mx-auto rounded-xl shadow-md flex-col flex items-center space-x-4">
        
           <div className="text-xl font-medium">Futuro Hijo</div>
+          <div>
+            </div>
           <p className="">Rasgos:</p>
           {response && Object.entries(response.futuro_hijo.rasgos).map(([key, value]) => (
             <div key={key}>
-               <p >{key}:</p>
+               <p >{key}:
                {Object.entries(value).map(([subKey, subValue]) => (
             <p key={subKey}>{subKey}:{JSON.stringify(subValue)}</p>
             ))}
+
+</p>
             </div>
            
           ))}
