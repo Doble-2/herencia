@@ -42,7 +42,7 @@ export  function StepResult() {
             <div className="self-start" key={key}>
                <p  >{key}:
                {Object.entries(value).map(([subKey, subValue]) => (
-            <span key={subKey}>{subKey}:{JSON.stringify(subValue)}% ; </span>
+            <span key={subKey}>{subKey} {JSON.stringify(subValue)}% ; </span>
             ))}
 
             </p>
