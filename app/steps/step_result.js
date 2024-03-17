@@ -33,7 +33,7 @@ export  function StepResult() {
               </a>
             </div>
           </div>
-        ) : <div className="p-6 bg-ownCreme overflow-auto max-h-[75vh]  max-w-sm mx-auto rounded-xl shadow-md flex-col flex items-center space-x-4">
+        ) : <div className="p-6 bg-ownCreme overflow-auto max-h-[60vh]  max-w-sm mx-auto rounded-xl shadow-md flex-col flex items-center space-x-4">
        
           <div className="text-xl font-medium">Futuro Hijo</div>
           
