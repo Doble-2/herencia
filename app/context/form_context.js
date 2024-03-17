@@ -1,5 +1,4 @@
 import { createContext, useEffect, useReducer, useState } from 'react';
-import { useLocalStorage } from '../hooks/use-local-storage';
 
 export const FormContext = createContext({
   parentsData: [],
@@ -86,19 +85,12 @@ export const FormProvider = ({ children }) => {
       });
  
 
-  const { getValueFromLocalStorage, removeValueFromLocalStorage } = useLocalStorage()
 
   function clearForm() {
-    removeValueFromLocalStorage('parentsData')
     setParentsData([])
   }
 
-  useEffect(() => {
-    const parentsDataFromLocalStorage = getValueFromLocalStorage('parentsData')
-    if (parentsDataFromLocalStorage) {
-        setParentsData(parentsDataFromLocalStorage)
-    }
-  }, [getValueFromLocalStorage('parentsData')])
+ 
 
   const value = {
     parentsData,

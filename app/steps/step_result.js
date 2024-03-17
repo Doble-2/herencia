@@ -8,17 +8,17 @@ export  function StepResult() {
     const [response, setResponse] = useState(null);
 
   const [IsLoading, setIsLoading] = useState(true);
-  const selectedModel = {
-    name: "Default (GPT-3.5)",
-    id: "gpt-3.5-turbo",
-    available: true,
-  };
- 
 
   useEffect(() => {
+    const selectedModel = {
+      name: "Default (GPT-3.5)",
+      id: "gpt-3.5-turbo",
+      available: true,
+    };
    
+  
   fetchData( parentsData, selectedModel, setResponse, setIsLoading)
-  }, [parentsData,selectedModel]);
+  }, [parentsData]);
 
 
   return (
