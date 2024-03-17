@@ -10,7 +10,7 @@ export  function StepInitial() {
   const { handleNextStep, handlePreviousStep } = useFormStep()
   return (
     
-        <div >
+        <div className="z-40">
           <a onClick={handleNextStep}>
             {" "}
             <EggAnimation />

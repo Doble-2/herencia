@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import EggAnimation from "./../components/egg";
 import { useForm } from "../hooks/use-form";
 import{ fetchData} from './../../lib/request_openai';
+import { useFormStep } from "../hooks/use-form-step";
 
 export  function StepResult() {
+  const { handleNextStep, handlePreviousStep } = useFormStep();
+
     const { parentsData, setParentsData } = useForm();
     const [response, setResponse] = useState(null);
 
@@ -26,15 +29,40 @@ export  function StepResult() {
       <div className="flex flex-1 flex-col">
         {IsLoading == true ? (
           <div>
-            loading{" "}
             <div>
-              <a >
+              <a  className="font-bold">
                 {"Cargando..."}
                 <EggAnimation />
               </a>
             </div>
           </div>
-        ) : response}
+        ) : <div className="p-6 bg-ownCreme overflow-auto max-h-[60vh]  max-w-sm mx-auto rounded-xl shadow-md flex-col flex items-center space-x-4">
+       
+          <div className="text-xl font-medium">Futuro Hijo</div>
+          
+          <p className="self-start font-medium">Rasgos:</p>
+          {response && Object.entries(response.futuro_hijo.rasgos).map(([key, value]) => (
+            <div className="self-start font-medium" key={key}>
+               <p  >{key}:
+               {Object.entries(value).map(([subKey, subValue]) => (
+            <span key={subKey}>{subKey} {JSON.stringify(subValue)}% ; </span>
+            ))}
+
+            </p>
+            </div>
+           
+          ))}
+          <p className="self-start font-medium">Predisposición a enfermedades:</p>
+          {response && Object.entries(response.futuro_hijo.predisposicion_enfermedades).map(([key, value]) => (
+            <div key={key} className="self-start font-medium">
+              <p className="font-medium">{key}:</p>
+              <p className="font-medium">Probabilidad: {value.probabilidad}%</p>
+              <p className="font-medium">Explicación: {value.explicacion}</p>
+              <p className="font-medium">Recomendaciones: {value.recomendaciones}</p>
+            </div>
+          ))}
+       
+      </div>}
       </div>
     </div>
   );

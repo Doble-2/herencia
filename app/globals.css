@@ -112,5 +112,24 @@
   .bg-ownPink{
     background-color: var(--ownPink);
   }
+/* Esto aplica a todo el documento */
+::-webkit-scrollbar {
+  width: 10px; /* Ancho del scrollbar */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color de fondo del track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Color de fondo del handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color de fondo del handle al hacer hover */
+}
 
 }

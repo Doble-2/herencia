@@ -11,22 +11,27 @@ export function StepHello() {
   const { handleNextStep, handlePreviousStep } = useFormStep();
 
   return (
-    <div className="bg-cover bg-center bg-no-repeat bg-nubesfondo">
+    <div className="">
       <div className="flex flex-row items-center">
         <div class="basis-1/2 relative md:flex items-center justify-center hidden">
           <div className="pb-16 absolute self-start">
-            <Image src={"PATITO.svg"} alt="Two snowmen" width="130" height="90" />
+            <Image
+              src={"PATITO.svg"}
+              alt="Two snowmen"
+              width="130"
+              height="250"
+            />
           </div>
           <div className="mb-8 absolute">
             <Image
               src={"Papas1.svg"}
               alt="Two snowmen"
               width="300"
-              height="200"
+              height="350"
             />
           </div>
         </div>
-        <div class="md:basis-1/2">
+        <div class="md:basis-1/2 z-40 flex items-center flex-col">
           <p className="text-center text-white mb-8 font-extrabold px-5">
             ¡Hola! Soy Born y cuando estaba en la barriga de mi mamá, mis padres
             tenían miedo de cómo sería mi condición genética, así que decidieron
@@ -34,10 +39,11 @@ export function StepHello() {
             totalmente sano. Con esta app puedes planificar tu embarazo con más
             tranquilidad así como lo hicieron mis papás
           </p>
+          <button onClick={handleNextStep} class="bg-ownOrange  font-bold py-2 px-4 rounded">
+            Empezar
+          </button>
         </div>
       </div>
-      <button onClick={handlePreviousStep}>prev</button>
-      <button onClick={handleNextStep}>sig</button>
     </div>
   );
 }

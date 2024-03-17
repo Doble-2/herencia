@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Predicciones de Transmisión Genética
 
-## Getting Started
+Este proyecto fue desarrollado por el equipo Cero Presion para la Codicon de Lexpin 2024. La página web realiza predicciones de transmisión genética basadas en diversos factores.
 
-First, run the development server:
+## Características
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Predicciones de transmisión genética: La página web puede predecir la transmisión genética basándose en los datos proporcionados por el usuario.
+- Interfaz de usuario intuitiva: La interfaz de usuario es fácil de usar y proporciona una visualización clara de los resultados de las predicciones.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tecnologías Utilizadas
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- Next.js: Utilizamos Next.js para el desarrollo del lado del servidor y la generación estática y del lado del servidor.
+- Tailwind CSS: Utilizamos Tailwind CSS para el diseño y el estilo de la página web.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Cómo Empezar
 
-## Learn More
+1. Clona el repositorio: `git clone https://github.com/Doble-2/herencia`
+2. Instala las dependencias: `npm  --legacy-peer-deps  i`
+3. Inicia el servidor de desarrollo: `npm run dev`
 
-To learn more about Next.js, take a look at the following resources:
+## Contribuir
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Si estás interesado en contribuir a este proyecto, por favor lee nuestra guía de contribución.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Licencia
 
-## Deploy on Vercel
+Este proyecto está licenciado bajo la licencia MIT.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contacto
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Si tienes alguna pregunta o sugerencia, no dudes en contactarnos.
